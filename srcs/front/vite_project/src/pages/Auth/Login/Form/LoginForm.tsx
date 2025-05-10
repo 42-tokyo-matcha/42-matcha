@@ -51,7 +51,7 @@ const LoginForm = () => {
     setSubmitStatus({ type: "", message: "" });
 
     try {
-      const response = await fetch("/api/login", {
+      const response = await fetch("/api/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -145,9 +145,8 @@ const LoginForm = () => {
 
       {submitStatus.message && (
         <div
-          className={`login-alert ${
-            submitStatus.type === "success" ? "alert-success" : "alert-error"
-          }`}
+          className={`login-alert ${submitStatus.type === "success" ? "alert-success" : "alert-error"
+            }`}
           role="alert"
           aria-live="polite"
         >
