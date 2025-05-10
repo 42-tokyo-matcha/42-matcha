@@ -63,7 +63,7 @@ const RegisterForm = () => {
 
       if (!response.ok) {
         const errorData: ErrorResponse = await response.json();
-        throw new Error(errorData.error|| "送信に失敗しました");
+        throw new Error(errorData.error || "送信に失敗しました");
       }
 
       const data: Response = await response.json();
@@ -171,9 +171,8 @@ const RegisterForm = () => {
 
       {submitStatus.message && (
         <div
-          className={`register-alert ${
-            submitStatus.type === "success" ? "alert-success" : "alert-error"
-          }`}
+          className={`register-alert ${submitStatus.type === "success" ? "alert-success" : "alert-error"
+            }`}
           role="alert"
           aria-live="polite"
         >
