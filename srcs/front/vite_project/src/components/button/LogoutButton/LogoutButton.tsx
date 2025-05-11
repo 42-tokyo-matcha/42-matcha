@@ -19,7 +19,7 @@ export const Logout: React.FC = () => {
     const token = getToken();
 
     try {
-      const response = await fetch("/api/logout", {
+      const response = await fetch("/api/auth/logout", {
         method: "POST",
         headers: {
           "Authorization": `Bearer ${token}`,

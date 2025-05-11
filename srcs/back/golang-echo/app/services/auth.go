@@ -28,8 +28,8 @@ func (a *AuthService) RegisterService(req *schemas.RegisterRequest) error {
 		return errors.ErrTransactionFailed
 	}
 	defer tx.Rollback() // エラーが発生した場合はロールバック
-	// usernameとemailの重複をcheck
 
+	// usernameとemailの重複をcheck
 	status, err := cruds.CheckDuplicateUserCredentials(tx, req.Username, req.Email)
 	if err != nil {
 		if status == http.StatusConflict {
@@ -66,7 +66,6 @@ func (a *AuthService) RegisterService(req *schemas.RegisterRequest) error {
 
 }
 
-// func (a *AuthService) LoginService(req *schemas.LoginRequest) (*schemas.User, string, error) {
 func (a *AuthService) LoginService(req *schemas.LoginRequest) (bool, string, error) {
 	// トランザクションを開始
 	tx, err := a.db.Begin()
